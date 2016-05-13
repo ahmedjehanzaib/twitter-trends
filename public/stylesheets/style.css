@@ -1,0 +1,70 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #23527c !important;
+}
+
+
+.trends-wrap
+{
+  box-shadow: -2px 0 3px #ddd;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.trends
+{
+  padding:5px;
+  border-bottom:1px solid #ddd;
+  margin:0;
+}
+
+.tweets-wrap
+{
+  box-shadow: 0 0 3px #ddd;
+  padding:0;
+  padding:10px;
+  height: 400px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.tweets
+{
+  padding:5px;
+  border-bottom:1px solid #ddd;
+  margin:0;
+}
+
+.time
+{
+  color:#bfbfbf;
+}
+
+.tweets-wrap .media-heading , .trends-wrap .media-heading
+{
+  color:#003bb3;
+  font-weight: 700;
+}
+a:visited {
+  color: yellow !important;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+.panel{
+  box-shadow: -2px 0 3px #ddd !important;
+}
+
+.select2-container .select2-selection{
+  height: 46px !important;
+}
+.select2-container .select2-selection__rendered{
+  line-height: 46px !important;
+}
+.select2-container .select2-selection__arrow{
+  height: 46px !important;
+  right: 5px !important;
+}

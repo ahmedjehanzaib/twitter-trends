@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .col-lg-offset-3.col-lg-6.text-center
+      .panel.panel-default
+        .panel-body
+          h1 Welcome to get twitter trends
+          .col-lg-8
+            .form-group
+                .select#location1.location(onchange='updateErrorField()',style="width:100%")
+          .col-lg-4
+            .form-group
+              input#noOfTrends.form-control(type="text", placeholder='N trends', value=10, onkeydown='updateErrorField()')
+          .col-lg-12
+            .row-fluid.alert.alert-danger.clearfix.hidden#errorMessage
+          .btn.btn-success(onclick='getLocationTrends()') Get trends

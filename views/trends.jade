@@ -1,0 +1,56 @@
+//Created by ahmed on 5/11/16.
+extends layout
+
+block content
+   script(type='text/javascript').
+      $(document).ready(function() { $('#checkedLink').click(); });
+
+
+   script(id="tweets-template" type="text/x-handlebars-template").
+      {{#each data}}
+         <div class="media tweets"><a href="#" class="pull-left"><img style="width: 32px; height: 32px;" src="{{user.profile_image_url}}"/></a>
+           <div class="media-body"><small class="pull-right time"><i class="fa fa-clock-o"></i>{{'dateTimeHelper' created_at}}</small>
+             <h5 class="media-heading">{{user.name}}</h5>
+             <small class="col-lg-10">
+               {{text}}
+             </small>
+           </div>
+         </div>
+      {{/each}}
+
+
+   .container
+      .panel.panel-default
+         .panel-body
+            .row
+               .col-lg-3
+                  h3 Trends
+               .col-lg-offset-1.col-lg-8
+                  h3 Tweets
+            .row
+               if error
+                  .alert.alert-info
+                     strong Info!
+                     span=error
+               if trendsData.length == 0
+                  .alert.alert-info
+                     strong Info!
+                     |    Entered place with trends does not exists!
+               else
+                  .trends-wrap.col-lg-4
+                     - for (var i = 0; i < trendsData.length; i++){
+                        .media.trends
+                           .media-body
+                              - var q = trendsData[i].query;
+                              if i == 0
+                                 a#checkedLink(onclick="getTweets('"+q+"')")
+                                 h5.media-heading=trendsData[i].name
+                              else
+                                 a(onclick="getTweets('"+q+"')")
+                                    h5.media-heading=trendsData[i].name
+                              small=trendsData[i].tweet_volume
+                              |   Tweets
+                     - }
+                  .tweets-wrap.col-lg-8
+                     #tweets
+                        p Please select the trends to get related tweets
